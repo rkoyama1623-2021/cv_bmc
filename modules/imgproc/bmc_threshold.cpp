@@ -20,6 +20,7 @@ int main(){
     }
     end = std::chrono::system_clock::now();
     double process_time = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
+    std::cout << cv::getBuildInformation() << std::endl;
     std::cout << "average process time: " << process_time << "[ms]"<< std::endl;
 
 }
