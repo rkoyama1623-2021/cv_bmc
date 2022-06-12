@@ -16,9 +16,9 @@ $ ./build.sh
 ## DEMO
 ```bash
 $ cd cv_bmc
-$ ./build_default/modules/imgproc/bin/bmc_threshold
+$ ./build_default/cv_bmc-prefix/src/cv_bmc-build/imgproc/bin/bmc_threshold
 average process time: 23[ms]
-$ ./build_opencl/modules/imgproc/bin/bmc_threshold
+$ ./build_opencl/cv_bmc-prefix/src/cv_bmc-build/imgproc/bin/bmc_threshold
 average process time: 1[ms]
 ```
 
