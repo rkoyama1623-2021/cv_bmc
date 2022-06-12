@@ -1,0 +1,8 @@
+set(cv_bmc_ROOT ${EXT_INSTALL_PATH}/cv_bmc CACHE INTERNAL "")
+
+ExternalProject_Add(cv_bmc
+    DEPENDS opencv
+    SOURCE_DIR ${CMAKE_SOURCE_DIR}/cv_bmc
+    CMAKE_ARGS -DOpenCV_DIR=${OpenCV_DIR} -DWITH_IPP=${WITH_IPP} -DWITH_OPENCL=${WITH_OPENCL} -DWITH_OPENMP=${WITH_OPENMP}
+    BUILD_COMMAND make
+)
