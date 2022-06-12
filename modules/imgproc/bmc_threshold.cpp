@@ -5,13 +5,16 @@
 using namespace cv;
 
 int main(){
-
+    std::cout << cv::getBuildInformation() << std::endl;
+#ifdef WITH_OPENCL
+    std::cout << "Use OpenCL" << std::endl;
+    Mat _input(3648, 5472, CV_8UC1); // 20M image
+    UMat input, output;
+    _input.copyTo(input);
+#else
     Mat input(3648, 5472, CV_8UC1); // 20M image
     Mat output;
-    std::vector<Mat> planes;
-    planes.resize(3);
-    CV_Assert(input.rows == 3648);
-    CV_Assert(input.cols == 5472);
+#endif
     std::chrono::system_clock::time_point  start, end;
 
     start = std::chrono::system_clock::now();
@@ -20,7 +23,6 @@ int main(){
     }
     end = std::chrono::system_clock::now();
     double process_time = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
-    std::cout << cv::getBuildInformation() << std::endl;
     std::cout << "average process time: " << process_time << "[ms]"<< std::endl;
 
 }
